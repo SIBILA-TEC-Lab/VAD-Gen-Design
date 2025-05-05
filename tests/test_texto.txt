@@ -1,0 +1,7 @@
+Hola!
+
+Este documento es uno de prueba. 
+
+Si intentan abrirlo desde varias partes, verán como pueden también hacerle commit a cambios directamente en el texto/código.
+
+Anímense a probar y experimentar.
