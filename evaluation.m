@@ -1,15 +1,24 @@
-%% ASPECTOS A CAMBIAR
-% AGREGAR CASO DEFAULT Y CASO PARA PESOS VARIABLES
-% HACER ESTO UN CICLO QUE LLAMA FUNCIONES DE MANERA CONSECUTIVA
-% AGREGAR OPCIONES PARA CASOS EN DONDE TIENE CONSTRAINTS
-% AGREGAR NORMALIZACION Y DESNORMALIZACION DE DATOS, USANDO RESTRICCIONES
-% ENCONTRAR MINIMOS Y MAXIMOS DE RANGO DE FUNCION DE MANERA NO UNGA BUNGA
-%
-% Idk dónde normalizar
-% Con eso también cambiaría lo de los límites, so idkkkkkkkk
-
 %% Evaluation
-function [normalizedEval] = evaluation(population)
+
+% Función de evaluación que usa la simulación
+function[eval] = evaluation(population)
+test = 0;
+
+if test == 1
+    eval = testEvaluation(population);
+    return
+end
+
+% El orden de la codificacion de individuos es
+% L, tbb, vTot
+high = [15; 11; 25];
+low = [5; 1; 5];
+end
+
+
+
+% (Usada para probar el algoritmo evolutivo)
+function [normalizedEval] = testEvaluation(population)
     high = [3; 3];
     low = [-3; -3];
     

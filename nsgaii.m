@@ -12,7 +12,7 @@
 popuSize = 1000;  % Tamaño de población
 %popuSplit = 0.5;  % Cuanto de la población corresponde a individuos nuevos
 % Prioridad baja
-generations = 100;      % Number of generations
+generations = 200;      % Number of generations
 crossoverProb = 0.9;   % Crossover probability
 mutationProb = 0.5;    % Mutation probability
 mutationRate = 0.001;    % Mutation rate
@@ -35,24 +35,26 @@ parentEval = evaluation(parentPopu);
 currentPopu = rand(numParams, popuSize*0.5);
 
 %% LOOP %%
-% Evaluar población
-% SOLO SE EVALUAN HIJOS, PADRES NO TIENEN QUE PASAR POR SIM
-currentEval = evaluation(currentPopu);
-
-%% Combinar poblaciones
-population = [parentPopu, currentPopu];
-results = [parentEval, currentEval];
-
-%% Sorting
-[fronts, crowdingDistances] = nonDominatingSorting(population, results);
-
-%% Elitist selection
-parentPopu = selection( ...
-    population, fronts, crowdingDistances);
-
-%% Crossover & Mutation
-currentPopu = crossover( ...
-    parentPopu, crossoverProb, mutationProb, mutationRate);
+for i = 1:generations
+    % Evaluar población
+    % SOLO SE EVALUAN HIJOS, PADRES NO TIENEN QUE PASAR POR SIM
+    currentEval = evaluation(currentPopu);
+    
+    %% Combinar poblaciones
+    population = [parentPopu, currentPopu];
+    results = [parentEval, currentEval];
+    
+    %% Sorting
+    [fronts, crowdingDistances] = nonDominatingSorting(population, results);
+    
+    %% Elitist selection
+    parentPopu = selection( ...
+        population, fronts, crowdingDistances);
+    
+    %% Crossover & Mutation
+    currentPopu = crossover( ...
+        parentPopu, crossoverProb, mutationProb, mutationRate);
+end
 
 %% Graphics
 high = [3; 3];
@@ -65,7 +67,7 @@ eval1 = sum(denormalizedPop.^2);
 eval2 = sum((denormalizedPop-1).^2);
 eval = [eval1; eval2];
 
-scatter(eval(1,:), eval(2,:))
+%scatter(eval(1,:), eval(2,:))
 
 %{
 Ejemplo de plots multicolor:
