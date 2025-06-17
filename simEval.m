@@ -1,5 +1,4 @@
-% Funcion a ejecutar para simular las iteraciones de evaluacion
-% Duracion: 
+% Funcion a ejecutar para evaluar el modelo dado parametros que entren
 function results = simEval(model, data)
 import com.comsol.model.*;    
 import com.comsol.model.util.*;

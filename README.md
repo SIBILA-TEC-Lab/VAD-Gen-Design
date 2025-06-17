@@ -30,16 +30,23 @@ Actualmente, el proyecto consiste las siguientes secciones principales:
         ~ binSave.m *
         ~ busbar.m
         ~ busbar.mph
-        ~ commsEval.m
         ~ comsolServer.m
+        ~ modelEval.m
         ~ modelShutDown.m
+        ~ simEval.m
         ~ serverShutDown.m
         ~ udpClose.m*
         ~ udpComms.m *
         ~ udpPrint.m *
         ~ udpScan.m *
+        
+
 
 * Son scripts que ambas secciones requieren para su funcionamiento
+
+
+
+- El archivo nsgaiiSim.m consiste en una versión del algoritmo que se corre exclusivamente en una computadora, utilizada para probar el código sin tener ambos ordenadores disponibles.
 
 
 
@@ -53,3 +60,4 @@ Actualmente, el proyecto consiste las siguientes secciones principales:
     ~ timeTest.m
     ~ udpPrintTest.m
     ~ udpScanTest.m
+    ~ 
