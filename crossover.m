@@ -1,23 +1,12 @@
-%% ASPECTOS A CAMBIAR
-% IMPLEMENTACION VECTORIAL DEL CRUCE Y PROBAR SI EXTRA FAST
-% PONER ERROR MANAGEMENT POR PROBLEMAS DE ARRAY
-% PONER SISTEMA PARA QUE PROBABILIDAD DE CRUCE CAMBIE CON INDIVIDUO
-% AGREGAR MAS MUTACIONES, ESP TIPO GAUSSIANA Y ETC ------------|
-% AGREGAR MANEJO PARA VARIOS TIPOS DE ENTRADAS DE MUTACION   «--
-% MEMORY ALLOCATION EN VEZ DE CONCAT MATRICES
-%
-% Por ahora, se asume que poblacion = 2n, n = # de padres
-% Para cumplir con esto, crossoverProb por ahora no se usa 
-% No sé si llamar a rand() tan a menudo
-%% CROSSOVER
-% Cruce y mutación de individuos según el conjunto de padres
 function newPopulation = crossover( ...
     popu, crossoverProb, mutationProb, mutationRate)
 
     % Declaracion de variables
-    popuSize = length(popu);
-    offspring = zeros(2,popuSize);
-    newPopulation = zeros(2,popuSize);
+    matrixDimensions = size(popu)
+    popuSize = matrixDimensions(2);
+    paramNum = matrixDimensions(1);
+    offspring = zeros(paramNum, popuSize);
+    newPopulation = zeros(paramNum, popuSize);
 
     % Emparejado de los padres
     shuffledPopu = popu(:, randperm(popuSize));
